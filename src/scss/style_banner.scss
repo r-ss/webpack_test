@@ -1,0 +1,92 @@
+$margin-vertical: 18px;
+$margin-horizontal: 18px;
+
+$font-stack: Arial, sans-serif;
+
+$base-font-size: 22px;
+
+$text-color: #fff;
+
+@mixin translateX {
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+@mixin translateY {
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@mixin translateXY {
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@mixin backgroundDefinion {
+  background-color: black;
+}
+
+
+.ress_ban {
+  color: $text-color;
+  font-family: $font-stack;
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid #666666;
+  box-sizing: border-box;
+  background-color: #DFE8EA;
+  @include backgroundDefinion;
+  font-size: $base-font-size;
+}
+
+.ress_ban a, .ress_ban a:hover {color: $text-color;}
+.ress_ban strong, .ress_ban b, .ress_ban h1, .ress_ban h2, .ress_ban .strong {font-family: $font-stack; font-weight: bold;}
+
+.ress_ban sup {font-size: 9px;}
+.ress_ban .white {color: white;}
+
+.disclaimer {
+  position: relative;
+  top: 50%;  
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translate(-50%);
+  transform: translateY(-50%);
+  margin: 0;
+  margin-left: $margin-horizontal;
+  margin-right: $margin-horizontal; 
+  font-size: 11px;
+  line-height: 13px;
+  text-align: justify;
+  // color: #b9c0c2; // - inline comments myst be working
+}
+
+.scrolling-disclaimer {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  pointer-events: auto !important;
+}
+.scrolling-disclaimer .disclaimer_container { margin: 15px 12px 15px 15px;}
+.scrolling-disclaimer { scrollbar-color: #b9c0c2 #000; scrollbar-width: 6px;}
+.scrolling-disclaimer::-webkit-scrollbar { width: 6px;  /* for vertical scrollbars */ }
+.scrolling-disclaimer::-webkit-scrollbar-track { background: rgba(125, 125, 125, 0.1); }
+.scrolling-disclaimer::-webkit-scrollbar-thumb { background: rgba(125, 125, 125, 0.8); }
+
+
+.disclaimer p {margin: 0px; margin-bottom: 5px;}
+.disclaimer span {font-weight: bold; color: white;}
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}

@@ -1,0 +1,105 @@
+@import '~normalize.css'; // must be bundled with this css file
+
+
+// $color-black: #151515;
+// $color-black: #181818;
+// $color-white: #fbfbfb;
+// $color-a: #95948f; // text
+// $color-b: #393939; // backgrounds
+// $color-accent: #cc5254;
+// $font-stack: 'Montserrat', Arial, sans-serif;
+
+
+$color-black: #262626;
+$color-white: #fbfbfb;
+
+$color-a: #95948f; // text
+$color-b: #393939; // backgrounds
+$color-accent: #cc5254;
+
+$base-font-size: 16px;
+
+$font-stack: 'Montserrat', Arial, sans-serif;
+
+
+
+html, body {color: $color-black; font-family: $font-stack; font-size: $base-font-size;} 
+
+
+
+@mixin translateX {
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+@mixin translateY {
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@mixin translateXY {
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+a, a:hover {color: $color-accent;}
+a:hover {text-decoration: underline;}
+strong, b, h1, h2, .strong {font-weight: bold;}
+
+
+
+// GRID
+
+.foldwrap-grid {
+  height: 100vh;
+  width: 100vw;
+
+  display: grid;
+
+  grid-template-areas:
+    "logotype"
+    "menubar"
+    "sidebar"
+    "content"
+    "codeeditor";
+  
+}
+
+@media (min-width: 260px) {
+  .foldwrap-grid {
+    grid-template-areas:
+      "logotype menubar"
+      "sidebar content"
+      "sidebar codeeditor";
+    grid-template-columns: 220px auto;
+    grid-template-rows: 80px auto 600px;
+  }
+}
+
+
+.editorHidden .codeeditor {display: none;}
+.editorHidden {grid-template-rows: 80px auto 0px;}
+
+.sidebarHidden {grid-template-columns: 0px auto;}
+.sidebarHidden .sidebar { display: none; }
+
+
+
+
+.logotype {grid-area: logotype; background: $color-b; color: $color-a;}
+.menubar {grid-area: menubar; background: $color-b; color: $color-a;}
+.sidebar {grid-area: sidebar; background: $color-b; color: $color-a;}
+.codeeditor {grid-area: codeeditor;}
+.content {grid-area: content; position: relative;}
+
+
+.margin-hotfix {
+  //margin: 30px 0px 0px 30px; // inline comments must work
+  max-width: calc(100vw - 280px) !important;
+}
+
+
